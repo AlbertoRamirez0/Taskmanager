@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'Task',
     'rest_framework',
     'django.contrib.staticfiles',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -56,8 +57,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
-CORS_ALLOW_ALL_ORIGINS = True #solo en desarrollo 
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:3000",
+    "http://localhost:3000",
+]
 ROOT_URLCONF = 'Taskmanager.urls'
 
 TEMPLATES = [
